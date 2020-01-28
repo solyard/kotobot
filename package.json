@@ -1,14 +1,14 @@
 {
-  "name": "imouto-ai",
-  "description": "Imouto bot for Telegram",
-  "version": "1.0.0",
+  "name": "kotobot",
+  "description": "Bot for Telegram",
+  "version": "3.0.0",
   "author": {
-    "name": "alexbft",
-    "email": "alexbft@github.com"
+    "name": "alexbft, diz100rm",
+    "email": "alexbft@github.com, dizstorm@github.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexbft/imouto.git"
+    "url": "https://github.com/diz100rm/kotobot"
   },
   "dependencies": {
     "cloudscraper": "^1.5.0",
