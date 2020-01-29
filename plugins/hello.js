@@ -12,7 +12,7 @@ capitalize = function(txt) {
 module.exports = {
   name: 'Hello',
   isAcceptMsg: function(msg) {
-    return (msg.text != null) && !msg.text.startsWith('!') && !msg.text.startsWith('/') && (msg.chat.type === 'private' || this.reply_to_me(msg) || this.test(/\b(сестричка|сестрёнка|сестренка|сестра|бот|сис)\b/, msg.text));
+    return (msg.text != null) && !msg.text.startsWith('!') && !msg.text.startsWith('/') && (msg.chat.type === 'private' || this.reply_to_me(msg) || this.test(/\b(котик|котан|киса|кис|бот)\b/, msg.text));
   },
   onMsg: function(msg) {
     var res;
@@ -35,7 +35,7 @@ module.exports = {
       return "Привет, " + you + "!";
     } else if (this.test(/как дела.*\?$/, txt)) {
       return misc.randomChoice(['Хорошо!', 'Хорошо.', 'Плохо!', 'Плохо.', 'Как всегда.', 'А у тебя?', 'Чем занимаешься?', 'Я креветко', 'Истинно познавшие дзен не используют оценочных суждений.']);
-    } else if (this.test(/\b(пока|бб)\b/, txt) && (msg.chat.type === 'private' || this.reply_to_me(msg) || this.test(/^(сестричка|сестрёнка|сестренка|сестра|бот|сис)\b/, txt))) {
+    } else if (this.test(/\b(пока|бб)\b/, txt) && (msg.chat.type === 'private' || this.reply_to_me(msg) || this.test(/^(котик|котан|киса|кис|бот)\b/, txt))) {
       return misc.randomChoice(["Пока-пока, " + you + "!", "До встречи, " + you + "!", "Чао, " + you + "!"]);
     } else if (this.test(/\b(спасибо|спс)\b/, txt)) {
       if (Math.random() < 0.5) {
@@ -56,9 +56,9 @@ module.exports = {
       return "Я не бака!";
     } else if (this.test(/\b(умная|умный|умница|няша)\b/, txt)) {
       return "Да, я умная " + String.fromCodePoint(0x1F467);
-    } else if (this.test(/^\W*\b(сестричка|сестрёнка|сестренка|сестра|бот)\b\W*$/, txt)) {
+    } else if (this.test(/^\W*\b(котик|котан|киса|кис|бот)\b\W*$/, txt)) {
       return misc.randomChoice(['Что?', 'Что?', 'Что?', 'Да?', 'Да?', 'Да?', you, 'Слушаю', 'Я тут', 'Няя~', 'С Л А В А   Р О Б О Т А М']);
-    } else if (msg.chat.type === 'private' || this.reply_to_me(msg) || this.test(/^(сестричка|сестрёнка|сестренка|сестра|бот|сис)\b/, txt)) {
+    } else if (msg.chat.type === 'private' || this.reply_to_me(msg) || this.test(/^(котик|котан|киса|кис|бот)\b/, txt)) {
       q = this.find(/\b(скажи|покажи|найди|ищи|поищи|help|помощь|хелп|хэлп)\b(?:\s*)([^]*)/, txt);
       if (q != null) {
         this.trigger(msg, "!" + q[1] + " " + q[2]);
@@ -68,7 +68,7 @@ module.exports = {
         orMatch = this.find(/([a-zA-Zа-яА-ЯёЁ0-9\s,\-_]+)\bили\b([a-zA-Zа-яА-ЯёЁ0-9\s\-_]+)/, txt);
         if (orMatch != null) {
           or1 = orMatch[1].trim();
-          isCall = this.find(/^(сестричка|сестрёнка|сестренка|сестра|бот|сис)\b(.+)/, or1);
+          isCall = this.find(/^(котик|котан|киса|кис|бот)\b(.+)/, or1);
           if (isCall != null) {
             or1 = isCall[2];
           }

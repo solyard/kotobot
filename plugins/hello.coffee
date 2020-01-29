@@ -8,7 +8,7 @@ module.exports =
     name: 'Hello'
 
     isAcceptMsg: (msg) ->
-        msg.text? and not msg.text.startsWith('!') and not msg.text.startsWith('/') and (msg.chat.type == 'private' or @reply_to_me(msg) or @test(/\b(сестричка|сестрёнка|сестренка|сестра|бот|сис)\b/, msg.text))
+        msg.text? and not msg.text.startsWith('!') and not msg.text.startsWith('/') and (msg.chat.type == 'private' or @reply_to_me(msg) or @test(/\b(котик|котан|киса|кис|бот)\b/, msg.text))
 
     onMsg: (msg) ->
         #console.log("Hellowing")
@@ -30,7 +30,7 @@ module.exports =
             "Привет, #{you}!"
         else if @test /как дела.*\?$/, txt
             misc.randomChoice ['Хорошо!', 'Хорошо.', 'Плохо!', 'Плохо.', 'Как всегда.', 'А у тебя?', 'Чем занимаешься?', 'Я креветко', 'Истинно познавшие дзен не используют оценочных суждений.']
-        else if @test(/\b(пока|бб)\b/, txt) and (msg.chat.type == 'private' or @reply_to_me(msg) or @test /^(сестричка|сестрёнка|сестренка|сестра|бот|сис)\b/, txt)
+        else if @test(/\b(пока|бб)\b/, txt) and (msg.chat.type == 'private' or @reply_to_me(msg) or @test /^(котик|котан|киса|кис|бот)\b/, txt)
             misc.randomChoice ["Пока-пока, #{you}!", "До встречи, #{you}!", "Чао, #{you}!"]
         else if @test /\b(спасибо|спс)\b/, txt
             if Math.random() < 0.5
@@ -50,9 +50,9 @@ module.exports =
             "Я не бака!"
         else if @test /\b(умная|умный|умница|няша)\b/, txt
             "Да, я умная " + String.fromCodePoint(0x1F467)
-        else if @test /^\W*\b(сестричка|сестрёнка|сестренка|сестра|бот)\b\W*$/, txt
+        else if @test /^\W*\b(котик|котан|киса|кис|бот)\b\W*$/, txt
             misc.randomChoice ['Что?', 'Что?', 'Что?', 'Да?', 'Да?', 'Да?', you, 'Слушаю', 'Я тут', 'Няя~', 'С Л А В А   Р О Б О Т А М']
-        else if msg.chat.type == 'private' or @reply_to_me(msg) or @test /^(сестричка|сестрёнка|сестренка|сестра|бот|сис)\b/, txt
+        else if msg.chat.type == 'private' or @reply_to_me(msg) or @test /^(котик|котан|киса|кис|бот)\b/, txt
             q = @find /\b(скажи|покажи|найди|ищи|поищи|help|помощь|хелп|хэлп)\b(?:\s*)([^]*)/, txt
             if q?
                 @trigger msg, "!#{q[1]} #{q[2]}"
@@ -61,7 +61,7 @@ module.exports =
                 orMatch = @find /([a-zA-Zа-яА-ЯёЁ0-9\s,\-_]+)\bили\b([a-zA-Zа-яА-ЯёЁ0-9\s\-_]+)/, txt
                 if orMatch?
                     or1 = orMatch[1].trim()
-                    isCall = @find /^(сестричка|сестрёнка|сестренка|сестра|бот|сис)\b(.+)/, or1
+                    isCall = @find /^(котик|котан|киса|кис|бот)\b(.+)/, or1
                     if isCall?
                         or1 = isCall[2]
                     or2 = orMatch[2]
